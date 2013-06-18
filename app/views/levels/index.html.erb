@@ -1,0 +1,27 @@
+<h1>Listing levels</h1>
+
+<table>
+  <tr>
+    <th>Tiles</th>
+    <th>Objects</th>
+    <th>Enemies</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @levels.each do |level| %>
+  <tr>
+    <td><%= level.tiles %></td>
+    <td><%= level.objects %></td>
+    <td><%= level.enemies %></td>
+    <td><%= link_to 'Show', level %></td>
+    <td><%= link_to 'Edit', edit_level_path(level) %></td>
+    <td><%= link_to 'Destroy', level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Level', new_level_path %>

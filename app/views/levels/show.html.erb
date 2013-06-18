@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tiles:</b>
+  <%= @level.tiles %>
+</p>
+
+<p>
+  <b>Objects:</b>
+  <%= @level.objects %>
+</p>
+
+<p>
+  <b>Enemies:</b>
+  <%= @level.enemies %>
+</p>
+
+
+<%= link_to 'Edit', edit_level_path(@level) %> |
+<%= link_to 'Back', levels_path %>

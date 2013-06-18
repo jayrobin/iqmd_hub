@@ -1,4 +1,7 @@
 GameHub::Application.routes.draw do
+  resources :levels
+
+
   root to: 'static_pages#home'
   get "static_pages/home"
 
