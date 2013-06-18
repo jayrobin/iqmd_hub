@@ -1,6 +1,9 @@
 class LevelsController < ApplicationController
   # GET /levels
   # GET /levels.json
+
+  #skip_before_filter :verify_authenticity_token, only: :create
+
   def index
     @levels = Level.all
 
