@@ -1,0 +1,5 @@
+class AddPlaysToLevels < ActiveRecord::Migration
+  def change
+    add_column :levels, :plays, :integer
+  end
+end

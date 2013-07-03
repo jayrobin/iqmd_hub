@@ -1,20 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Tiles:</b>
-  <%= @level.tiles %>
+  <h1><%= @level.plays %> Plays</h1>
 </p>
 
-<p>
-  <b>Objects:</b>
-  <%= @level.objects %>
-</p>
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js" type="text/javascript"/></script>
 
-<p>
-  <b>Enemies:</b>
-  <%= @level.enemies %>
-</p>
+<script type="text/javascript">
+	var flashvars = {
+		level: "<%=@level.id %>"
+	};
+	var params = {
+		menu: "false",
+		wmode: "direct"
+	};
+	var attributes = {
+		id: "ScrewThisJob",
+		name: "ScrewThisJob"
+	};
 
+	swfobject.embedSWF("<%= asset_path "screw_this_job.swf" %>", "flashcontent", "640", "576", "11.0.0","expressInstall.swf", flashvars, params, attributes);
+</script>
 
-<%= link_to 'Edit', edit_level_path(@level) %> |
+<div id="flashcontent">
+	<h1>You need to download the latest <a href="https://get.adobe.com/flashplayer/?no_ab=1">Flash Player Version</a> to run this game</h1>
+</div>
+
+<br/>
+
 <%= link_to 'Back', levels_path %>

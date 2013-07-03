@@ -43,16 +43,13 @@ class LevelsController < ApplicationController
   # POST /levels
   # POST /levels.json
   def create
-    @level = Level.new(params[:level])
+    puts params
+    @level = Level.new(tiles: params[:tiles], objects: params[:objects], enemies: params[:enemies])
 
-    respond_to do |format|
-      if @level.save
-        format.html { redirect_to @level, notice: 'Level was successfully created.' }
-        format.json { render json: @level, status: :created, location: @level }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @level.errors, status: :unprocessable_entity }
-      end
+    if @level.save
+      render json: @level, status: :created, location: @level
+    else
+      render json: @level.errors, status: :unprocessable_entity
     end
   end
 
@@ -82,5 +79,12 @@ class LevelsController < ApplicationController
       format.html { redirect_to levels_url }
       format.json { head :no_content }
     end
+  end
+
+  def load
+    @level = Level.find(params[:id])
+    @level.update_attribute(:plays, @level.plays + 1)
+
+    render json: @level
   end
 end

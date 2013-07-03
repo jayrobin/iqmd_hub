@@ -5,7 +5,8 @@ GameHub::Application.routes.draw do
   root to: 'static_pages#home'
   get "static_pages/home"
 
-  match "create", to: "Levels#create"
+  match "create", to: "Levels#create", via: :post
+  match "levels/download/:id", to: "Levels#load"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

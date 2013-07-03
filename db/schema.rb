@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618190649) do
+ActiveRecord::Schema.define(:version => 20130703133826) do
 
   create_table "levels", :force => true do |t|
     t.string   "tiles"
     t.string   "objects"
     t.string   "enemies"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "plays",      :default => 0
   end
 
 end
