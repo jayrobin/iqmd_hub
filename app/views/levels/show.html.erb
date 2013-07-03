@@ -19,7 +19,7 @@
 		name: "ScrewThisJob"
 	};
 
-	swfobject.embedSWF("<%= asset_path "screw_this_job.swf" %>", "flashcontent", "640", "576", "11.0.0","expressInstall.swf", flashvars, params, attributes);
+	swfobject.embedSWF("<%= asset_path "screw_this_job.swf" %><%= "?#{Time.new.to_i}" %>", "flashcontent", "640", "576", "11.0.0","expressInstall.swf", flashvars, params, attributes);
 </script>
 
 <div id="flashcontent">
