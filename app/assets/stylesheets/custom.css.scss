@@ -1,0 +1,169 @@
+/* variables */
+$grayMediumLight: #eaeaea;
+$grayLight: #999;
+$grayDarker: #222;
+$gray: #555;
+
+$softBlack: #202020;
+$softWhite: #E8E8E8;
+
+@mixin box_sizing {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 0px;
+  background-color: $softBlack;
+  color: $softWhite;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  align: center;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1;
+}
+
+h1 {
+	font-size: 3em;
+	letter-spacing: -2px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1.7em;
+	letter-spacing: -1px;
+	margin-bottom: 30px;
+	text-align: center;
+	font-weight: normal;
+	color: $softWhite;
+}
+
+p {
+	font-size: 1.1em;
+	line-height: 1.7em;
+}
+
+
+/* header */
+header {
+	margin: 16px;
+	position: relative;
+	left: -32px;
+}
+
+/* footer */
+
+footer {
+	margin-top: 45px;
+	padding-top: 5px;
+	color: $gray;
+
+	small {
+		float: left;
+	}
+}
+
+/* miscellaneous */
+
+.debug_dump {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 45px;
+	background-color: black;
+	@include box_sizing;
+}
+
+/* navigation */
+#main {
+	margin: 0px 128px;
+	align: center;
+}
+
+.header-item {
+	display: inline-block;
+	margin: 32px 0px 0px 0px;
+}
+
+#nav-menu {
+	list-style-type:none;
+	position: relative;
+}
+
+li {
+	display: block;
+}
+
+.nav-item a {
+	outline:none;
+	text-decoration:none;
+	text-indent: -9999em;
+    display: inline-block;
+	width: 91px;
+	height: 35px;
+	margin: 16px;
+	float: left;
+}
+
+#nav-item-play a:link,
+#nav-item-play a:visited {
+    background: url('/assets/playBtn.png');
+}
+#nav-item-play a:hover {
+    background: url('/assets/playBtn_hover.png');
+}
+#nav-item-play a:active {
+    background: url('/assets/playBtn_down.png');
+}
+
+
+#nav-item-levels a:link,
+#nav-item-levels a:visited {
+    background: url('/assets/levelsBtn.png');
+}
+#nav-item-levels a:hover {
+    background: url('/assets/levelsBtn_hover.png');
+}
+#nav-item-levels a:active {
+    background: url('/assets/levelsBtn_down.png');
+}
+
+.share-item {
+	outline:none;
+	display: inline;
+	margin: 8px;
+}
+
+@media (max-width: 767px) {
+.desktop-only {
+	display: none;
+}
+
+#main {
+	margin: 16px auto;
+}
+}
