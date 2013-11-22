@@ -1,5 +1,11 @@
 <div class="center">
+	<% if false %>
   <iframe width="560" height="315" src="//www.youtube.com/embed/-iwErum1Qcg?hd=1&autohide=1&showinfo=0&wmode=opaque" frameborder="0" allowfullscreen></iframe>
+  <% else %>
+	<div id="flashcontent">
+		<h1>You need to download the latest <a href="https://get.adobe.com/flashplayer/?no_ab=1">Flash Player Version</a> to run this game</h1>
+	</div>
+	<% end %>
   	<ul id="share-menu">
   		<li class="share-item">
 			<%= link_to image_tag("facebook.png", border: 0), "https://www.facebook.com/mustdashgame" %>

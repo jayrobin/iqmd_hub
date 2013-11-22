@@ -36,8 +36,8 @@ textarea {
 .center {
   text-align: center;
   align: center;
-  margin-left: auto ;
-  margin-right: auto ;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* typography */
@@ -56,8 +56,8 @@ h1 {
 h2 {
 	font-size: 1.7em;
 	letter-spacing: -1px;
-	margin-bottom: 30px;
-	text-align: center;
+	margin: 0;
+	text-align: left;
 	font-weight: normal;
 	color: $softWhite;
 }
@@ -65,6 +65,8 @@ h2 {
 p {
 	font-size: 1.1em;
 	line-height: 1.7em;
+	color: $grayLight;
+	letter-spacing: -1px;
 }
 
 
@@ -158,6 +160,44 @@ li {
 	margin: 8px;
 }
 
+#levels {
+    margin: 0 auto;
+	width: 600px;
+	color: $grayLight;
+}
+#levels_latest {
+	width: 300px;
+	float: left;
+}
+
+#levels_popular {
+	width: 300px;
+	margin-left: 300px;
+}
+
+.level {
+	display: inline-block;
+	text-align: center;
+	padding: 8px;
+}
+
+.level_img {
+	image-rendering:-webkit-optimize-contrast;
+	image-rendering:optimizeSpeed;             /* Legal fallback */
+	image-rendering:-moz-crisp-edges;          /* Firefox        */
+	image-rendering:-o-crisp-edges;            /* Opera          */
+	image-rendering:-webkit-optimize-contrast; /* Safari         */
+	image-rendering:optimize-contrast;         /* CSS3 Proposed  */
+	image-rendering:crisp-edges;               /* CSS4 Proposed  */
+	image-rendering:pixelated;                 /* CSS4 Proposed  */
+	-ms-interpolation-mode:nearest-neighbor;   /* IE8+           */
+	width: 100px;
+	height: auto;
+	float: left;
+}
+
+
+/* mobile-only */
 @media (max-width: 767px) {
 .desktop-only {
 	display: none;

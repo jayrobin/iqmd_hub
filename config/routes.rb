@@ -7,6 +7,7 @@ GameHub::Application.routes.draw do
 
   match "create", to: "Levels#create", via: :post
   match "levels/download/:id", to: "Levels#load"
+  match "replay/:id", to: "static_pages#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -5,7 +5,8 @@ class LevelsController < ApplicationController
   #skip_before_filter :verify_authenticity_token, only: :create
 
   def index
-    @levels = Level.all
+    @levels_latest = Level.limit(10).order("created_at desc").all
+    @levels_popular = Level.limit(10).order("plays desc").all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,7 +29,6 @@ class LevelsController < ApplicationController
   # GET /levels/new.json
   def new
     @level = Level.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @level }
@@ -43,10 +43,11 @@ class LevelsController < ApplicationController
   # POST /levels
   # POST /levels.json
   def create
-    puts params
     @level = Level.new(tiles: params[:tiles], objects: params[:objects], enemies: params[:enemies])
 
     if @level.save
+      path = File.join("public/levels/icons", "#{@level.id}.png")
+      File.open(path, "wb") { |f| f.write(Base64.decode64(params[:icon])) }
       render json: @level, status: :created, location: @level
     else
       render json: @level.errors, status: :unprocessable_entity

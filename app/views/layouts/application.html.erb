@@ -4,6 +4,28 @@
     <title>I Quit Must Dash</title>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
+	<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js" type="text/javascript"/></script>
+	<script type="text/javascript">
+		var flashvars = {
+			<% if @level %>
+			level: "<%= @level.id %>",
+			<% end %>
+
+			<% if @replay != "" %>
+			replay: "<%= @replay %>"
+			<% end %>
+		};
+		var params = {
+			menu: "false",
+			wmode: "direct"
+		};
+		var attributes = {
+			id: "iqmd",
+			name: "iqmd"
+		};
+
+		swfobject.embedSWF("/assets/iqmd.swf", "flashcontent", "640", "576", "11.0.0","expressInstall.swf", flashvars, params, attributes);
+    </script>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
   </head>

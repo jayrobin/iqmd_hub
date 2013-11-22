@@ -1,4 +1,27 @@
-<h1>Listing levels</h1>
+<div id="levels">
+<div id="levels_latest" class="levels_column">
+  <h2>Latest Levels</h2>
+ <% @levels_latest.each do |level| %>
+  <div class="level">
+    <p><%= level.created_at.to_formatted_s(:short) %></p>
+    <%= link_to image_tag("/levels/icons/#{level.id}.png", border: 1, class: "level_img"), level %>
+    <p><%= level.plays %> plays</p>
+  </div>
+ <% end %>
+</div>
+<div id="levels_popular" class="levels_column">
+  <h2>Popular Levels</h2>
+ <% @levels_popular.each do |level| %>
+  <div class="level">
+    <p><%= level.created_at.to_formatted_s(:short) %></p>
+    <%= link_to image_tag("/levels/icons/#{level.id}.png", border: 1, class: "level_img"), level %>
+    <p><%= level.plays %> plays</p>
+  </div>
+ <% end %>
+</div>
+</div>
+
+<% if false %>
 
 <table>
   <tr>
@@ -10,7 +33,7 @@
     <th></th>
   </tr>
 
-<% @levels.each do |level| %>
+<% @levels_latest.each do |level| %>
   <tr>
     <td><%= level.tiles %></td>
     <td><%= level.objects %></td>
@@ -21,7 +44,4 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Level', new_level_path %>
+<% end %>
