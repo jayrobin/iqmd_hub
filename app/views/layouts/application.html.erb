@@ -11,7 +11,7 @@
 			level: "<%= @level.id %>",
 			<% end %>
 
-			<% if @replay != "" %>
+			<% if @replay and @replay != "" %>
 			replay: "<%= @replay %>"
 			<% end %>
 		};

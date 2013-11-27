@@ -57,29 +57,22 @@ class LevelsController < ApplicationController
   # PUT /levels/1
   # PUT /levels/1.json
   def update
-    @level = Level.find(params[:id])
+ #   @level = Level.find(params[:id])
 
-    respond_to do |format|
-      if @level.update_attributes(params[:level])
-        format.html { redirect_to @level, notice: 'Level was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @level.errors, status: :unprocessable_entity }
-      end
-    end
+#    respond_to do |format|
+#      if @level.update_attributes(params[:level])
+#        format.html { redirect_to @level, notice: 'Level was successfully updated.' }
+#        format.json { head :no_content }
+#      else
+#        format.html { render action: "edit" }
+#        format.json { render json: @level.errors, status: :unprocessable_entity }
+#      end
+#    end
   end
 
   # DELETE /levels/1
   # DELETE /levels/1.json
   def destroy
-    @level = Level.find(params[:id])
-    @level.destroy
-
-    respond_to do |format|
-      format.html { redirect_to levels_url }
-      format.json { head :no_content }
-    end
   end
 
   def load
