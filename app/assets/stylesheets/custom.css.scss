@@ -114,10 +114,12 @@ footer {
 #nav-menu {
 	list-style-type:none;
 	position: relative;
+	clear: both;
 }
 
 li {
 	display: block;
+	clear: both;
 }
 
 .nav-item a {
@@ -179,6 +181,11 @@ li {
 	display: inline-block;
 	text-align: center;
 	padding: 8px;
+}
+
+.level p {
+	clear: both;
+	display: block;
 }
 
 .level_img {
