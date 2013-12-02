@@ -4,7 +4,7 @@
  <% @levels_latest.each do |level| %>
   <div class="level">
     <p><%= level.created_at.to_formatted_s(:short) %></p>
-    <%= link_to image_tag("/levels/icons/#{level.id}.png", border: 1, class: "level_img"), level %>
+    <%= link_to image_tag(level.icon.url, border: 1, class: "level_img"), level %>
     <p><%= level.plays %> plays</p>
   </div>
  <% end %>
@@ -14,7 +14,7 @@
  <% @levels_popular.each do |level| %>
   <div class="level">
     <p><%= level.created_at.to_formatted_s(:short) %></p>
-    <%= link_to image_tag("/levels/icons/#{level.id}.png", border: 1, class: "level_img"), level %>
+    <%= link_to image_tag(level.icon.url, border: 1, class: "level_img"), level %>
     <p><%= level.plays %> plays</p>
   </div>
  <% end %>

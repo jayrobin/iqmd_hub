@@ -11,15 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130703133826) do
+ActiveRecord::Schema.define(:version => 20131202123947) do
 
   create_table "levels", :force => true do |t|
     t.string   "tiles"
     t.string   "objects"
     t.string   "enemies"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-    t.integer  "plays",      :default => 0
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.integer  "plays",             :default => 0
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
   end
 
 end

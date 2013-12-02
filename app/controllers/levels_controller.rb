@@ -43,15 +43,27 @@ class LevelsController < ApplicationController
   # POST /levels
   # POST /levels.json
   def create
-    @level = Level.new(tiles: params[:tiles], objects: params[:objects], enemies: params[:enemies])
+    puts "ENV"
+    puts ENV["S3_BUCKET_NAME"]
+    path = File.join("public/levels/icons", "#{Time.now.getutc}.png")
+    file = File.open(path, "wb") { |f| f.write(Base64.decode64(params[:icon])) }
+
+    file = File.open(path, "r")
+    @level = Level.new(tiles: params[:tiles], objects: params[:objects], enemies: params[:enemies], icon: file)
+    file.close
 
     if @level.save
-      path = File.join("public/levels/icons", "#{@level.id}.png")
-      File.open(path, "wb") { |f| f.write(Base64.decode64(params[:icon])) }
+      #create_icon_for @level
       render json: @level, status: :created, location: @level
     else
       render json: @level.errors, status: :unprocessable_entity
     end
+  end
+
+  def create_icon_for(level)
+    #file = File.open()
+    #path = File.join("public/levels/icons", "#{@level.id}.png")
+    #File.open(path, "wb") { |f| f.write(Base64.decode64(params[:icon])) }
   end
 
   # PUT /levels/1
