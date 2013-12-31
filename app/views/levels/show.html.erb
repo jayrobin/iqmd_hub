@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
-<div id="flashcontent" class="center">
+<div class="center">
+	<p id="notice"><%= notice %></p>
+<div id="flashcontent">
 	<h1>You need to download the latest <a href="https://get.adobe.com/flashplayer/?no_ab=1">Flash Player Version</a> to run this game</h1>
 </div>
-<div class="center">
 	<h3><%= @level.plays %> plays</h3>
 	<h3>Submitted on <%= @level.created_at.to_formatted_s(:short) %></h3>
 </div>
